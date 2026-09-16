@@ -1,6 +1,6 @@
 import java.util.concurrent.Semaphore;
 
-class practice {
+class ProducerConsumer {
 		static int[] buffer = new int[5];
 	    static int in = 0;
 	    static int out = 0;
@@ -12,9 +12,7 @@ class practice {
 	    static class Producer extends Thread {
           @Override
 	        public void run() {
-
 	            for (int item = 1; item <= 10; item++) {
-
 	                try {
 	                    empty.acquire();  // Wait for an empty space
 	                    mutex.acquire();  // Enter critical section
@@ -35,9 +33,7 @@ class practice {
 	    }
 
 	    static class Consumer extends Thread {
-
 	        public void run() {
-
 	            for (int i = 1; i <= 10; i++) {
                   @Override
 	                try {
