@@ -1,7 +1,6 @@
 import java.util.concurrent.Semaphore;
 
 public class ReaderWriter {
-
     static int data = 0;
     static int readerCount = 0;
 
@@ -13,9 +12,8 @@ public class ReaderWriter {
         Reader(int id) {
             this.id = id;
         }
-
+        @Override
         public void run() {
-
             try {
                 mutex.acquire();  // Protect readerCount
               
@@ -44,14 +42,12 @@ public class ReaderWriter {
     }
 
     static class Writer extends Thread {
-
         int id;
         Writer(int id) {
             this.id = id;
         }
-
+        @Override
         public void run() {
-
             try {
                 rwMutex.acquire();  // Writer gets exclusive access
               
