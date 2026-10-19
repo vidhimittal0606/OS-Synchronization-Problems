@@ -10,7 +10,7 @@ class ProducerConsumer {
 	    static Semaphore mutex = new Semaphore(1);
 
 	    static class Producer extends Thread {
-          @Override
+            @Override
 	        public void run() {
 	            for (int item = 1; item <= 10; item++) {
 	                try {
@@ -33,9 +33,9 @@ class ProducerConsumer {
 	    }
 
 	    static class Consumer extends Thread {
+			@Override
 	        public void run() {
 	            for (int i = 1; i <= 10; i++) {
-                  @Override
 	                try {
 	                    full.acquire();  // Wait for an available item
 	                    mutex.acquire();  // Enter critical section
